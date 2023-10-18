@@ -11,3 +11,10 @@ function makeSquares(rows, columns) {
 }
 
 makeSquares(16,16)
+
+const gridItem = document.querySelector('.gridItem')
+
+container.addEventListener('mouseover', () => {
+    if (event.target.matches('.gridItem')) {
+        event.target.classList.toggle('hovered');
+}});
