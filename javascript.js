@@ -26,6 +26,8 @@ slider.addEventListener('input', function() {
     makeSquares(squares)
 })
 
+makeSquares (squares)
+
 const gridItem = document.querySelector('.gridItem')
 
 container.addEventListener('mouseover', () => {
