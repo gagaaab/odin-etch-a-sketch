@@ -28,13 +28,14 @@ slider.addEventListener('input', function() {
 makeSquares (squares)
 
 const clearButton = document.getElementById('clear')
-clearButton.addEventListener('click', () => {
+if (clearButton) {
+        clearButton.addEventListener('click', () => {
     let hoveredElements = document.querySelectorAll('.hovered')
     hoveredElements.forEach(element => {
         element.classList.remove('hovered')
     })
 })
-
+}
 
 container.addEventListener('click', () => {
     if (event.target.matches('.gridItem')) {
