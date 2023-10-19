@@ -1,16 +1,30 @@
 const container = document.getElementById('container')
 
-function makeSquares(rows, columns) {
-    container.style.setProperty('--gridRows', rows)
-    container.style.setProperty('--gridColumns', columns)
-    for (let i = 0; i < (rows * columns); i++) {
+function makeSquares(sides) {
+    container.style.setProperty('--gridRows', sides)
+    container.style.setProperty('--gridColumns', sides)
+    for (let i = 0; i < (sides * sides); i++) {
         let square = document.createElement('div');
         square.innerText = (i + 1);
         container.appendChild(square).className = "gridItem"
     }
 }
 
-makeSquares(16,16)
+const slider = document.getElementById('gridSize')
+const output = document.getElementById('size')
+output.textContent = slider.value
+
+slider.oninput = function() {
+    size.textContent = this.value
+}
+
+let squares = slider.value
+
+slider.addEventListener('input', function() {
+    squares = slider.value
+    container.textContent = ""
+    makeSquares(squares)
+})
 
 const gridItem = document.querySelector('.gridItem')
 
