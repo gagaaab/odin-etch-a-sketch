@@ -9,13 +9,9 @@
     height: 500px;
     grid-template-rows: repeat(var(--gridRows), 1fr);
     grid-template-columns: repeat(var(--gridColumns), 1fr);
-}
-
-.gridItem {
     border: 1px solid black;
-    text-align: center;
 }
 
-.hovered {
-    background: red;
+button.active {
+    background-color: aqua;
 }

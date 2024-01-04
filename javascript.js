@@ -1,3 +1,10 @@
+const defaultPen = '#000000'
+const defaultBackground = '#FFFFFF'
+
+let currentPen = defaultPen
+let currentBackground =  defaultBackground
+let currentColor = currentPen
+
 const container = document.getElementById('container')
 
 function makeSquares(sides) {
@@ -19,27 +26,25 @@ slider.oninput = function() {
 
 let squares = slider.value
 
-slider.addEventListener('input', function() {
+slider.addEventListener('input', () => {
     squares = slider.value
-    container.textContent = ""
+    container.textContent = ''
     makeSquares(squares)
 })
 
 makeSquares (squares)
 
 const clearButton = document.getElementById('clear')
-if (clearButton) {
-        clearButton.addEventListener('click', () => {
-    let hoveredElements = document.querySelectorAll('.hovered')
-    hoveredElements.forEach(element => {
-        element.classList.remove('hovered')
-    })
+clearButton.addEventListener('click', () => {
+    container.innerHTML = ''
+    makeSquares(squares)
+    gridButton.classList.remove('active')
+    gridMode = false
 })
-}
 
 container.addEventListener('click', () => {
     if (event.target.matches('.gridItem')) {
-        event.target.classList.add('hovered');
+        event.target.style.background = currentColor;
     }
 });
 
@@ -54,7 +59,7 @@ container.addEventListener('mousedown', () => {
 function onMouseMove(event) {
     if (mouseDown) {
         if (event.target.matches('.gridItem')) {
-            event.target.classList.add('hovered');
+            event.target.style.background = currentColor;
         }
     }
 }
@@ -64,3 +69,53 @@ function onMouseUp(event) {
     document.removeEventListener("mousemove", onMouseMove)
     document.removeEventListener("mouseup", onMouseUp)
 }
+
+
+
+function setCurrentMode() {
+    if (penMode) {
+        currentColor = currentPen
+        eraserButton.classList.remove('active')
+        penButton.classList.add('active')
+    }
+    else if (eraserMode) {
+        currentColor = currentBackground
+        penButton.classList.remove('active')
+        eraserButton.classList.add('active')
+    }
+}
+
+const penButton = document.getElementById('pen')
+penButton.classList.add('active')
+let penMode = true
+penButton.addEventListener('click', () => {
+    penMode = true
+    eraserMode = false
+    setCurrentMode()
+})
+
+const eraserButton = document.getElementById('eraser')
+eraserButton.addEventListener('click', () => {
+    penMode = false
+    eraserMode = true
+    setCurrentMode()
+})
+
+const gridItems = document.getElementsByClassName('gridItem')
+let gridMode = false
+function clearGrid() {
+    for (let i = 0; i < gridItems.length; i++) {
+        if (gridMode) {
+            gridItems[i].style.border = '1px solid black';
+        } else {
+            gridItems[i].style.border = 'none';
+        }
+    }
+}
+
+const gridButton = document.getElementById('toggleGrid')
+gridButton.addEventListener('click', () => {
+    gridButton.classList.toggle('active');
+    gridMode = !gridMode;
+    clearGrid();
+})
