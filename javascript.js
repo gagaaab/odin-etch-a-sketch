@@ -34,6 +34,12 @@ slider.addEventListener('input', () => {
 
 makeSquares (squares)
 
+const colorPicker = document.getElementById('colorPicker')
+colorPicker.addEventListener('input', () => {
+    currentPen = colorPicker.value
+    setCurrentMode()
+})
+
 const clearButton = document.getElementById('clear')
 clearButton.addEventListener('click', () => {
     container.innerHTML = ''
@@ -69,8 +75,6 @@ function onMouseUp(event) {
     document.removeEventListener("mousemove", onMouseMove)
     document.removeEventListener("mouseup", onMouseUp)
 }
-
-
 
 function setCurrentMode() {
     if (penMode) {
