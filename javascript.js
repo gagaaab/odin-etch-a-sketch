@@ -17,11 +17,8 @@ function makeSquares(sides) {
 }
 
 const slider = document.getElementById('gridSize')
-const output = document.getElementById('size')
-output.textContent = slider.value
-
 slider.oninput = function() {
-    size.textContent = this.value
+    size.textContent = slider.value + " x " + slider.value
 }
 
 let squares = slider.value
@@ -30,6 +27,8 @@ slider.addEventListener('input', () => {
     squares = slider.value
     container.textContent = ''
     makeSquares(squares)
+    gridButton.classList.remove('active')
+    gridMode = false
 })
 
 makeSquares (squares)
@@ -128,7 +127,7 @@ let gridMode = false
 function clearGrid() {
     for (let i = 0; i < gridItems.length; i++) {
         if (gridMode) {
-            gridItems[i].style.border = '1px solid black';
+            gridItems[i].style.border = '1px solid #909090';
         } else {
             gridItems[i].style.border = 'none';
         }
