@@ -5,14 +5,15 @@ let currentPen = defaultPen
 let currentBackground =  defaultBackground
 let currentColor = currentPen
 
-const container = document.getElementById('container')
+const sketchContainer = document.getElementById('sketchContainer')
 
 function makeSquares(sides) {
-    container.style.setProperty('--gridRows', sides)
-    container.style.setProperty('--gridColumns', sides)
+    sketchContainer.style.setProperty('--gridRows', sides)
+    sketchContainer.style.setProperty('--gridColumns', sides)
     for (let i = 0; i < (sides * sides); i++) {
         let square = document.createElement('div');
-        container.appendChild(square).className = "gridItem"
+        square.setAttribute('draggable', 'false')
+        sketchContainer.appendChild(square).className = "gridItem"
     }
 }
 
@@ -25,7 +26,7 @@ let squares = slider.value
 
 slider.addEventListener('input', () => {
     squares = slider.value
-    container.textContent = ''
+    sketchContainer.textContent = ''
     makeSquares(squares)
     gridButton.classList.remove('active')
     gridMode = false
@@ -59,13 +60,13 @@ const colorPicker3 = document.getElementById('colorPicker3')
 
 const clearButton = document.getElementById('clear')
 clearButton.addEventListener('click', () => {
-    container.innerHTML = ''
+    sketchContainer.innerHTML = ''
     makeSquares(squares)
     gridButton.classList.remove('active')
     gridMode = false
 })
 
-container.addEventListener('click', () => {
+sketchContainer.addEventListener('click', () => {
     if (event.target.matches('.gridItem')) {
         event.target.style.background = currentColor;
     }
@@ -73,7 +74,7 @@ container.addEventListener('click', () => {
 
 let mouseDown = false;
 
-container.addEventListener('mousedown', () => {
+sketchContainer.addEventListener('mousedown', () => {
     mouseDown = true
     document.addEventListener("mousemove", onMouseMove)
     document.addEventListener("mouseup", onMouseUp)

@@ -2,6 +2,7 @@
 html {
     min-height: 100%;
     font-family: Ubuntu;
+    position: relative;
 }
 
 :root {
@@ -9,13 +10,69 @@ html {
     --gridRows: 1;
 }
 
-#container {
+body {
+    background: #fcfcfc;
+}
+
+.main {
+    display: flex;
+    justify-content: center;;
+    align-items: flex-end;
+    flex-wrap: wrap-reverse;
+    gap: 125px;
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 25px;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    background: #212121;
+    font-size: 36px;
+    color: #fcfcfc;
+}
+
+.buttonContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 20px;
+}
+
+.title {
+    font-size: 60px;
+    font-weight: bold;
+}
+
+#size {
+    font-size: 30px;
+}
+
+.paintContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.colorContainer {
+    padding-top: 30px;
+}
+
+#sketchContainer {
     display: grid;
     width: 500px;
     height: 500px;
     grid-template-rows: repeat(var(--gridRows), 1fr);
     grid-template-columns: repeat(var(--gridColumns), 1fr);
-    box-shadow: 0px 5px 10px rgba(0, 0, 0, 10%)
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 10%);
 }
 
 button {
@@ -23,6 +80,7 @@ button {
     height: 50px;
     border-radius: 25px;
     border: 1px solid #212121;
+    background: #fcfcfc;
     font-family: Ubuntu;
     font-size: 30px;
 }
@@ -39,7 +97,6 @@ button:hover {
 input[type=color] {
     -webkit-appearance: none;
     border: none;
-    padding: 0px;
     width: 100px;
     height: 100px;
 }
