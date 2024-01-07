@@ -12,7 +12,7 @@ function makeSquares(sides) {
     sketchContainer.style.setProperty('--gridColumns', sides)
     for (let i = 0; i < (sides * sides); i++) {
         let square = document.createElement('div');
-        square.setAttribute('draggable', 'false')
+        square.setAttribute('draggable', 'false');
         sketchContainer.appendChild(square).className = "gridItem"
     }
 }

@@ -14,14 +14,26 @@ body {
     background: #fcfcfc;
 }
 
+
+.strike {
+    border-bottom: 1px solid #212121;
+    position: absolute;
+    top: 575px;
+    left: 0;
+    width: 100%;
+    z-index: -1000;
+}
+
 .main {
     display: flex;
     justify-content: center;;
     align-items: flex-end;
     flex-wrap: wrap-reverse;
-    gap: 125px;
+    gap: 50px;
     padding-top: 100px;
     padding-bottom: 100px;
+    z-index: 950;
+    position: relative;
 }
 
 .footer {
@@ -36,6 +48,7 @@ body {
     background: #212121;
     font-size: 36px;
     color: #fcfcfc;
+    z-index: 990;
 }
 
 .buttonContainer {
@@ -63,6 +76,7 @@ body {
 }
 
 .colorContainer {
+    bottom: 10px;
     padding-top: 30px;
 }
 
