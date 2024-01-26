@@ -38,6 +38,7 @@ const colorPicker1 = document.getElementById('colorPicker1')
 "input click".split(" ").forEach(function(e) {
     colorPicker1.addEventListener(e, () => {
     currentPen = colorPicker1.value
+    penMode = true
     setCurrentMode()
 })
 })
@@ -46,6 +47,7 @@ const colorPicker2 = document.getElementById('colorPicker2')
 "input click".split(" ").forEach(function(e) {
     colorPicker2.addEventListener(e, () => {
     currentPen = colorPicker2.value
+    penMode = true
     setCurrentMode()
 })
 })
@@ -54,6 +56,7 @@ const colorPicker3 = document.getElementById('colorPicker3')
 "input click".split(" ").forEach(function(e) {
     colorPicker3.addEventListener(e, () => {
     currentPen = colorPicker3.value
+    penMode = true
     setCurrentMode()
 })
 })
