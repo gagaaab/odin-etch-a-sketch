@@ -128,7 +128,7 @@ let gridMode = false
 function clearGrid() {
     for (let i = 0; i < gridItems.length; i++) {
         if (gridMode) {
-            gridItems[i].style.border = '1px solid #909090';
+            gridItems[i].style.border = '1px solid rgba(0, 0, 0, 0.12)';
         } else {
             gridItems[i].style.border = 'none';
         }
