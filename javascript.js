@@ -29,7 +29,8 @@ slider.addEventListener('input', () => {
     sketchContainer.textContent = ''
     makeSquares(squares)
     gridButton.classList.remove('active')
-    gridMode = false
+    gridMode = true
+    clearGrid()
 })
 
 makeSquares (squares)
@@ -66,7 +67,8 @@ clearButton.addEventListener('click', () => {
     sketchContainer.innerHTML = ''
     makeSquares(squares)
     gridButton.classList.remove('active')
-    gridMode = false
+    gridMode = true
+    clearGrid()
 })
 
 sketchContainer.addEventListener('click', () => {
