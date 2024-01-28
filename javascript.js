@@ -127,7 +127,7 @@ eraserButton.addEventListener('click', () => {
 })
 
 const gridItems = document.getElementsByClassName('gridItem')
-let gridMode = false
+let gridMode = true
 function clearGrid() {
     for (let i = 0; i < gridItems.length; i++) {
         if (gridMode) {
@@ -139,6 +139,7 @@ function clearGrid() {
 }
 
 const gridButton = document.getElementById('toggleGrid')
+clearGrid()
 gridButton.addEventListener('click', () => {
     gridButton.classList.toggle('active');
     gridMode = !gridMode;
